@@ -1,5 +1,16 @@
+:root {
+  --bg-clr : 255,255,255;
+  --fg-clr : 0,0,0;
+  --shadow-clr : 170,170,170;
+  --base-clr : 40,230,40;
+}
+
+::-webkit-scrollbar {width: 0;}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+a {text-decoration: none; color: unset;}
