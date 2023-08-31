@@ -47,13 +47,14 @@ function Navbar() {
         {/* Links */}
         <div className="NavLinksContainer" style={menuClicked ? {display:"flex"} : {}}>
             <div className="NavLinkCrossBtn" onClick={() => {handleMenu()}}> X </div>
-            <Link href="/" className={`NavLinkContainer ${location.pathname === "/" ? "activePath" : ""}`}> Home </Link>
-            <Link href="#" className={`NavLinkContainer ${location.pathname === "/about" ? "activePath" : ""}`}> About </Link>
-            <Link href="#" className={`NavLinkContainer ${location.pathname === "/contact" ? "activePath" : ""}`}> Contact </Link>
+            <Link to="/" className={`NavLinkContainer ${location.pathname === "/" ? "activePath" : ""}`}> Home </Link>
+            <Link to="#" className={`NavLinkContainer ${location.pathname === "/about" ? "activePath" : ""}`}> About </Link>
+            <Link to="#" className={`NavLinkContainer ${location.pathname === "/contact" ? "activePath" : ""}`}> Contact </Link>
             {
                 userLoggedIn ?
                 <div className="NavLinksHolder">
-                    <div className="NavUserName" onClick={() => {setProfileMenu(!profileMenu)}}> 
+                    <div className="NavUserName" onClick={() => {setProfileMenu(!profileMenu)}}
+                    style={{cursor:"pointer"}}> 
                       {userName} 
                       {
                         profileMenu ? <BsChevronUp style={{fontSize:"16px",margin:"0 5px"}} />
@@ -61,13 +62,14 @@ function Navbar() {
                       }
                     </div>
                     <div className="NavLinkHolderParent" style={profileMenu ? {display:"flex"} : {display:"none"}}>
-                      <div className="NavLinkHolder"> Dashboard </div>
-                      <div className="NavLinkHolder"> Employer </div>
-                      <div className="NavLinkHolder"> settings </div>
-                      <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}> Logout </div>
+                      <Link to="/dashboard" className="NavLinkHolder"> Dashboard </Link>
+                      <Link to="#" className="NavLinkHolder"> Employer </Link>
+                      <Link to="#" className="NavLinkHolder"> settings </Link>
+                      <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}
+                      style={{cursor:"pointer"}}> Logout </div>
                     </div>
                 </div> :
-                <Link href="/signin" className='NavLinkContainer'> Sign in </Link>
+                <Link to="/signin" className='NavLinkContainer'> Sign in </Link>
             }
         </div>
     </div>

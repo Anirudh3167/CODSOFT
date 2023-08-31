@@ -1,0 +1,32 @@
+.SignupWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.SignupMainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: calc(100% - 10px);
+    max-width: 500px;
+    min-width: 300px;
+    min-height: 500px;
+
+    padding: 10px;
+    margin: 5px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px rgb(230,230,230),
+                0 0 40px rgb(100,100,100);
+}

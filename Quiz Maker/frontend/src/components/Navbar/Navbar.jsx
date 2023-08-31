@@ -1,7 +1,12 @@
 // Package imports
-import React,{ useState } from 'react'
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
+import React,{ useState, useEffect } from 'react'
+import { useLocation, Link } from 'react-router-dom'
+
+// Icons import
+import {BsChevronDown,BsChevronUp} from 'react-icons/bs'
+
+// CSS imports
+import './Navbar.css'
 
 function Navbar() {
   // Variables
@@ -10,34 +15,61 @@ function Navbar() {
   // ################################
   // CHECK USER IS LOGGED IN
   // ################################
-  const [userLoggedIn,setUserLoggedIn] = useState(false);   // For authenticating the user.
+  const [userLoggedIn,setUserLoggedIn] = useState(true);   // For authenticating the user.
   const [userName,setUserName] = useState("Master");
   useEffect(()=>{
     console.log(`User Logged in : ${userLoggedIn}`);
     console.log(`User Name: ${userName}`);
+    console.log(`path:${location.pathname}`)
   },[]);
+
+  // ################################
+  // Menu Toggling for small screen
+  // ################################
+  const [menuClicked,setMenuClicked] = useState(false);
+  const handleMenu = () => {setMenuClicked(!menuClicked);}
+
+  // ################################
+  // Profile menu toggle (links after logged in)
+  // ################################
+  const [profileMenu,setProfileMenu] = useState(false);
 
   return (
     <div className='NavMainWrapper'>
         {/* Logo */}
-        <div className="NavLogoSpace"> Job Board </div>
+        <Link href="/" className="NavLogoSpace"> Quiz Maker </Link>
+
+        {/* Menu For small screens */}
+        {/* Wrapper for menuclicked work only on window.innerWidth < 800 */}
+        <div className="NavLinkMenu" onClick={() => {handleMenu()}}
+        style={menuClicked ? {display:"none"} : {}}> Menu </div>
 
         {/* Links */}
-        <div className="NavLinksContainer">
-            <div className="NavLinkCrossBtn"> X </div>
-            <Link href="/" className={`NavLinkContainer ${location.pathname === "" ? "active" : ""}`}> Home </Link>
-            <Link href="#" className={`NavLinkContainer ${location.pathname === "/about" ? "active" : ""}`}> About </Link>
-            <Link href="#" className={`NavLinkContainer ${location.pathname === "/contact" ? "active" : ""}`}> Contact </Link>
+        <div className="NavLinksContainer" style={menuClicked ? {display:"flex"} : {}}>
+            <div className="NavLinkCrossBtn" onClick={() => {handleMenu()}}> X </div>
+            <Link to="/" className={`NavLinkContainer ${location.pathname === "/" ? "activePath" : ""}`}> Home </Link>
+            <Link to="#" className={`NavLinkContainer ${location.pathname === "/about" ? "activePath" : ""}`}> About </Link>
+            <Link to="#" className={`NavLinkContainer ${location.pathname === "/contact" ? "activePath" : ""}`}> Contact </Link>
             {
                 userLoggedIn ?
                 <div className="NavLinksHolder">
-                    <div className="NavUserName"> {userName} </div>
-                    <div className="NavLinkHolder"> Dashboard </div>
-                    <div className="NavLinkHolder"> Employer </div>
-                    <div className="NavLinkHolder"> settings </div>
-                    <div className="NavLinkHolder logoutBtn"> Logout </div>
+                    <div className="NavUserName" onClick={() => {setProfileMenu(!profileMenu)}}
+                    style={{cursor:"pointer"}}> 
+                      {userName} 
+                      {
+                        profileMenu ? <BsChevronUp style={{fontSize:"16px",margin:"0 5px"}} />
+                        : <BsChevronDown style={{fontSize:"16px",margin:"5px"}} /> 
+                      }
+                    </div>
+                    <div className="NavLinkHolderParent" style={profileMenu ? {display:"flex"} : {display:"none"}}>
+                      <Link to="#" className="NavLinkHolder"> Dashboard </Link>
+                      <Link to="#" className="NavLinkHolder"> Join Quiz </Link>
+                      <Link to="#" className="NavLinkHolder"> settings </Link>
+                      <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}
+                      style={{cursor:"pointer"}}> Logout </div>
+                    </div>
                 </div> :
-                <Link href="#" className='NavLinkContainer'> Signup </Link>
+                <Link to="#" className='NavLinkContainer'> Sign in </Link>
             }
         </div>
     </div>

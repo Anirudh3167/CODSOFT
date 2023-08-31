@@ -1,0 +1,361 @@
+.DashboardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.DashboardMainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100vw;
+    height: 100%;
+
+    padding: 10px;
+    padding-top: 60px;
+}
+                                                                /* Left Side Dashboard */
+.DashboardLeft {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 300px;
+    min-width:300px;
+    height:100%;
+
+    padding: 5px;
+
+    overflow: scroll;
+}
+
+.DashboardLeftFilterCross {
+    display: none;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    font-size: 30px;
+    font-family: system-ui;
+}
+
+.FilterResetBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 0.05rem;
+
+    background-color: black;
+    color: white;
+}
+
+.FilterOptionContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.FilterOptionHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 5px 0;
+    padding: 5px;
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.FilterOptionContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+.FilterPriceRange {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 40px);
+    height: 40px;
+}
+                                                    /* Dashboard Right */
+.DashboardRight {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: calc(100% - 320px);      /* 300 for left and 20 for padding */
+    height: 100%;
+
+    overflow: scroll;
+}
+
+.DashboardRightTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+    width: 100%;
+    min-width: 300px;
+    height: 60px;
+}
+
+.DashboardSearchContainer {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 80px);
+    max-width: 800px;
+    min-width: 200px;
+    height: 60px;
+}
+
+.DashboardSearchBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 10px);
+    height: 50px;
+    
+    padding: 10px 30px 10px 20px;
+
+    border-radius: 30px;
+    border: 1px solid rgb(100,100,100);
+    font-size: 18px;
+
+    background-color: transparent;
+    color: rgb(var(--fg-clr));
+}
+
+.DashboardSearchBox::placeholder {color: rgb(60,60,60);}
+
+.DashboardSearchBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+}
+
+.DashboardRightFilterBtn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 50px;
+
+    padding: 10px;
+}
+
+                                                        /* Dashboard Results */
+.DashboardResultsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: calc(100% - 60px);      /* 60 for Dashboard Top */
+
+    overflow: scroll;
+}
+
+.DashboardResult {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 250px;
+    height: 300px;
+
+    margin: 5px;
+    padding: 10px;
+
+    transition: 0.7s;
+    border-radius: 10px;
+
+    background-color: rgb(var(--bg-clr));
+    color: rgb(var(--fg-clr));
+    box-shadow: 2px 0px 8px rgb(170,170,170);
+}
+
+.DashboardResult:hover {background-color: rgb(var(--base-clr));color: rgb(var(--bg-clr));}
+
+.JobTopContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+    min-height: 20px;
+    max-height: 100px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgb(210,210,210);
+}
+
+.DashboardCompanyProfile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 10px;
+
+    border-radius: 3px;
+    background-color: silver;
+    color: black;
+}
+
+.DashboardCompanyTopDetails {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: calc(100% - 60px);   /* 40 image and 10 10 for margin */
+}
+
+.ResultsJobRole {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 5px;
+
+    font-size: 16px;
+    font-weight: 600;
+    /* color: rgb(var(--fg-clr)); */
+}
+
+.DashboardCompanyName {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 5px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(80,80,80);
+}
+
+.ResultsJobDetailsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 80px;
+
+    padding: 5px;
+
+    color: rgb(130,130,130);
+}
+
+.DashboardResult:hover > .ResultsJobDetailsContainer {color: black;}
+
+.ResultsJobDetailsItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+
+    margin: 5px 0;
+
+    font-size: 14px;
+}
+
+.ResultsJobPosted {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    padding-left: 10px;
+
+    font-size: 14px;
+
+    color: rgba(40,40,40,0.6);
+}
+
+.ResultsJobView {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: blue;
+}
+
+.ResultsJobView:hover {color: black;}
+
+@media only screen and (max-width:860px) {
+    .DashboardLeft {display: none; width: 100%; min-width: 300px;}
+    .DashboardLeftFilterCross {display: flex;}
+    .DashboardRight {width: 100%;}
+    .DashboardRightFilterBtn {display: flex;}
+}

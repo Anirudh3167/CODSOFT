@@ -7,27 +7,34 @@ import {FcGoogle} from 'react-icons/fc'
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 // CSS imports
-import './Signin.css'
+import '../Signin/Signin.css'
 
 function Signin() {
   // ######################################
   // FOR ROUTER PURPOSE 
   // ######################################
   const router = useNavigate();
+  // ######################################
+  // FOR SHOW PASSWORD BUTTONS  
+  // ######################################
+  const [showPassword,setShowPassword] = useState(false);
+  const [rePasswordShow,setRePasswordShow] = useState(false);
   
   // ######################################
   // STORING THE DATA
   // ######################################
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
-  const [showPassword,setShowPassword] = useState(false);
+  const [rePassword,setRePassword] = useState("");
   
   // ######################################
   // HANDLING THE DATA BEFORE SUBMITTING
   // ######################################
   const handleSubmit = () => {
     const msg = email === "" ? "Invalid Email" :
-                password === "" ? "Invalid Password" : "";
+                password === "" ? "Invalid Password" :
+                rePassword === "" ? "Re enter your password" :
+                password !== rePassword ? "Passwords do not match" : "";
     
     if (msg !== "") {alert(msg);}
     else {
@@ -43,15 +50,15 @@ function Signin() {
     <div className='SigninWrapper'>
         {/* Upper Text */}
         <div className="SigninMainContainer">
-            <div className="SigninHello"> Hello again </div>
+            <div className="SigninHello"> Hi there </div>
             <div className="SigninWelcomeMessage">
-                Welcome back. Please sign in to continue
+                Welcome. Please sign up to continue
             </div>
         {/* OAuth Buttons */}
             <div className="SigninOauthWrapper">
                 <div className="SigninOAuthBtn"> 
                     <FcGoogle style={{fontSize:"24px",margin:"0px 10px"}} />
-                    Sign in with Google 
+                    Sign up with Google 
                 </div>
                 <div className="SigninOr"> or </div>
             </div>
@@ -73,6 +80,18 @@ function Signin() {
                         )
                     }
                 </div>
+                <div className="SigninInputContainer">
+                    <input className='SigninInputBox' 
+                    placeholder='Re-enter Password' style={{paddingRight:"40px"}}
+                    onChange={(e)=>{setRePassword(e.target.value)}}
+                    type={rePasswordShow ? "text" : "password"} value={rePassword} />
+                    {
+                        rePassword!=="" && (rePasswordShow ?
+                        <BsEye className='passwordIcon' onClick={()=>{setRePasswordShow(!rePasswordShow)}} /> 
+                        : <BsEyeSlash className='passwordIcon' onClick={()=>{setRePasswordShow(!rePasswordShow)}} />
+                        )
+                    }
+                </div>
                 <div className="SigninRememberContainer">
                     <div className="SigninRemeber">
                         <input type="checkbox" className='SigninCheckBox' name='rememberMe' />
@@ -82,11 +101,11 @@ function Signin() {
                 </div>
             </div>
         {/* Sign In */}
-            <div className="SigninButton" onClick={() => {handleSubmit()}}> Sign in </div>
+            <div className="SigninButton" onClick={() => {handleSubmit()}}> Sign up </div>
         {/* Sign up */}
             <div className="SignupContainer">
-                Doesn't have an account?
-                <Link to="/signup" className="SigninForgotPassword"> Sign up</Link>
+                Already have an account?
+                <Link to="/signin" className="SigninForgotPassword"> Sign in</Link>
             </div>
         </div>
     </div>

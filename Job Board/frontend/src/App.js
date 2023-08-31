@@ -9,6 +9,7 @@ import './App.css';
 import Home from './pages/Home/Home';
 import CustomerDashboard from './pages/CustomerDashboard/CustomerDashboard';
 import Signin from './pages/Signin/Signin';
+import Signup from './pages/Signup/Signup';
 
 function App() {
   // Setting the Title of the website
@@ -23,6 +24,7 @@ function App() {
         <Route path='/dashboard' element={<CustomerDashboard />} />
         
         <Route path='/signin' element={<Signin/>} />
+        <Route path='/signup' element={<Signup/>} />
       </Routes>
       </BrowserRouter>
     </div>

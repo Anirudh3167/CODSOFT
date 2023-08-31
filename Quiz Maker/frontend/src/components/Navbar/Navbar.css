@@ -1,0 +1,182 @@
+.NavMainWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100vw;
+    min-height: 60px;
+
+    padding: 0px 10px;
+
+    font-size: 18px;
+    font-family: sans-serif;
+
+    background-color: rgb(var(--bg-clr));
+    color: rgb(var(--fg-clr));
+}
+
+                                                            /* Logo */
+.NavLogoSpace {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    height: 60px;
+
+    padding: 10px;
+
+    font-size: 30px;
+    font-weight: 500;
+    z-index: 3;
+
+    color: rgb(var(--base-clr));
+}
+
+                                                                /* Small screen Menu button */
+.NavLinkMenu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 60px;
+
+    padding: 10px;
+
+}
+
+                                                                /* Parent conatiner of all links */
+.NavLinksContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    width: calc(100% - 200px);
+    height: 60px;
+
+    padding-right: 10px;
+}
+
+.NavLinkCrossBtn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 60px;
+
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+                                                            /* Container of each Link */
+.NavLinkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    min-height: 60px;
+
+    padding: 10px;
+
+    transition: 0.5s;
+        
+    background-color: rgb(var(--bg-clr));
+}
+
+.NavLinkContainer:hover {
+    color: rgb(0,0,200);
+}
+
+.activePath {
+    color: rgb(var(--base-clr));
+}
+
+                                            /* Parent Container of logged in links */
+.NavLinksHolder {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    min-height: 60px;
+        
+    background-color: rgb(var(--bg-clr));
+}
+
+.NavUserName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 60px;
+
+    padding: 10px;
+}
+
+.NavLinkHolderParent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 150px;
+}
+
+.NavLinkHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 10px);
+    height: 40px;
+
+    padding: 5px;
+    margin: 5px;
+}
+                                            /* Inside the Links Holder (logged in links) */
+.logoutBtn {
+    border-radius: 5px;
+    border: 0;
+
+    font-weight: 400;
+
+    background-color: red;
+    color: white;
+}
+
+@media only screen and (max-width:800px) {
+    .NavMainWrapper {
+        justify-content: space-between; 
+
+        height: 60px; 
+
+        padding: 0 10px;
+
+        overflow: visible; 
+    }
+    .NavLinkMenuWrapper {display: flex;}
+    .NavLinkMenu {display: flex;}
+    .NavLinksContainer {
+        display: none;  
+        flex-direction: column; 
+        justify-content: space-between;
+        align-items: flex-end;
+
+        height: auto;
+    }
+    .NavLinkCrossBtn {
+        display: flex;
+        
+        background-color: rgb(var(--bg-clr));
+    }
+}
