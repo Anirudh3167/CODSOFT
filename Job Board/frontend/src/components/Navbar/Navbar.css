@@ -39,15 +39,6 @@
 }
 
                                                                 /* Small screen Menu button */
-.NavLinkMenuWrapper {
-    display: none;
-    align-items: center;
-    justify-content: center;
-
-    width: 100px;
-    height: 60px;
-}
-
 .NavLinkMenu {
     display: none;
     align-items: center;
@@ -76,7 +67,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 80px;
+    width: 70px;
     height: 60px;
 
     font-size: 28px;
@@ -95,6 +86,8 @@
     padding: 10px;
 
     transition: 0.5s;
+        
+    background-color: rgb(var(--bg-clr));
 }
 
 .NavLinkContainer:hover {
@@ -113,8 +106,9 @@
     justify-content: flex-start;
     flex-direction: column;
 
-    width: 150px;
     min-height: 60px;
+        
+    background-color: rgb(var(--bg-clr));
 }
 
 .NavUserName {
@@ -122,7 +116,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 100%;
+    width: 150px;
     height: 60px;
 
     padding: 10px;
@@ -134,7 +128,7 @@
     justify-content: flex-start;
     flex-direction: column;
 
-    width: 100%;
+    width: 150px;
 }
 
 .NavLinkHolder {
@@ -178,9 +172,10 @@
         align-items: flex-end;
 
         height: auto;
-        width: 200px;
+    }
+    .NavLinkCrossBtn {
+        display: flex;
         
         background-color: rgb(var(--bg-clr));
     }
-    .NavLinkCrossBtn {display: flex;}
 }

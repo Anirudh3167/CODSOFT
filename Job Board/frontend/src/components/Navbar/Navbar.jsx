@@ -2,6 +2,9 @@
 import React,{ useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 
+// Icons import
+import {BsChevronDown,BsChevronUp} from 'react-icons/bs'
+
 // CSS imports
 import './Navbar.css'
 
@@ -12,7 +15,7 @@ function Navbar() {
   // ################################
   // CHECK USER IS LOGGED IN
   // ################################
-  const [userLoggedIn,setUserLoggedIn] = useState(false);   // For authenticating the user.
+  const [userLoggedIn,setUserLoggedIn] = useState(true);   // For authenticating the user.
   const [userName,setUserName] = useState("Master");
   useEffect(()=>{
     console.log(`User Logged in : ${userLoggedIn}`);
@@ -38,13 +41,11 @@ function Navbar() {
 
         {/* Menu For small screens */}
         {/* Wrapper for menuclicked work only on window.innerWidth < 800 */}
-        <div className="NavLinkMenuWrapper">
-          <div className="NavLinkMenu" onClick={() => {handleMenu()}}
-          style={menuClicked ? {display:"none"} : {display:"flex"}}> Menu </div>
-        </div>
+        <div className="NavLinkMenu" onClick={() => {handleMenu()}}
+        style={menuClicked ? {display:"none"} : {}}> Menu </div>
 
         {/* Links */}
-        <div className="NavLinksContainer" style={window.innerWidth > 800 || menuClicked ? {display:"flex"} : {display:"none"}}>
+        <div className="NavLinksContainer" style={menuClicked ? {display:"flex"} : {}}>
             <div className="NavLinkCrossBtn" onClick={() => {handleMenu()}}> X </div>
             <Link href="/" className={`NavLinkContainer ${location.pathname === "/" ? "activePath" : ""}`}> Home </Link>
             <Link href="#" className={`NavLinkContainer ${location.pathname === "/about" ? "activePath" : ""}`}> About </Link>
@@ -52,7 +53,13 @@ function Navbar() {
             {
                 userLoggedIn ?
                 <div className="NavLinksHolder">
-                    <div className="NavUserName" onClick={() => {setProfileMenu(!profileMenu)}}> {userName} </div>
+                    <div className="NavUserName" onClick={() => {setProfileMenu(!profileMenu)}}> 
+                      {userName} 
+                      {
+                        profileMenu ? <BsChevronUp style={{fontSize:"16px",margin:"0 5px"}} />
+                        : <BsChevronDown style={{fontSize:"16px",margin:"5px"}} /> 
+                      }
+                    </div>
                     <div className="NavLinkHolderParent" style={profileMenu ? {display:"flex"} : {display:"none"}}>
                       <div className="NavLinkHolder"> Dashboard </div>
                       <div className="NavLinkHolder"> Employer </div>
@@ -60,7 +67,7 @@ function Navbar() {
                       <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}> Logout </div>
                     </div>
                 </div> :
-                <Link href="#" className='NavLinkContainer' onClick={() => {setUserLoggedIn(true)}}> Signup </Link>
+                <Link href="/signin" className='NavLinkContainer'> Sign in </Link>
             }
         </div>
     </div>
