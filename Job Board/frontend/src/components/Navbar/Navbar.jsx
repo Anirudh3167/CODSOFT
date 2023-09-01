@@ -18,8 +18,8 @@ function Navbar() {
   const [userLoggedIn,setUserLoggedIn] = useState(true);   // For authenticating the user.
   const [userName,setUserName] = useState("Master");
   useEffect(()=>{
-    console.log(`User Logged in : ${userLoggedIn}`);
-    console.log(`User Name: ${userName}`);
+    // console.log(`User Logged in : ${userLoggedIn}`);
+    // console.log(`User Name: ${userName}`);
     console.log(`path:${location.pathname}`)
   },[]);
 
@@ -62,9 +62,9 @@ function Navbar() {
                       }
                     </div>
                     <div className="NavLinkHolderParent" style={profileMenu ? {display:"flex"} : {display:"none"}}>
+                      <Link to={`/profile/${userName}`} className="NavLinkHolder"> Profile </Link>
                       <Link to="/dashboard" className="NavLinkHolder"> Dashboard </Link>
-                      <Link to="#" className="NavLinkHolder"> Employer </Link>
-                      <Link to="#" className="NavLinkHolder"> settings </Link>
+                      <Link to="/hire" className="NavLinkHolder"> Hire </Link>
                       <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}
                       style={{cursor:"pointer"}}> Logout </div>
                     </div>

@@ -18,9 +18,11 @@
 
     width: 100vw;
     height: 100%;
+    min-height: 100%;
 
-    padding: 10px;
-    padding-top: 60px;
+    padding: 60px 10px 0 10px;
+
+    overflow-y: clip;
 }
                                                                 /* Left Side Dashboard */
 .DashboardLeft {
@@ -34,8 +36,10 @@
     height:100%;
 
     padding: 5px;
+    margin-top: 10px;
 
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .DashboardLeftFilterCross {
@@ -92,8 +96,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     padding: 10px;
+
+    font-size: 16px;
+}
+
+.OptionCheckboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100%;
+
+    padding: 5px;
 
     font-size: 16px;
 }
@@ -115,8 +133,7 @@
 
     width: calc(100% - 320px);      /* 300 for left and 20 for padding */
     height: 100%;
-
-    overflow: scroll;
+    min-height: calc(100vh - 60px);
 }
 
 .DashboardRightTop {
@@ -199,8 +216,10 @@
 
     width: 100%;
     height: calc(100% - 60px);      /* 60 for Dashboard Top */
+    min-height: calc(100% - 60px);
 
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .DashboardResult {
@@ -286,7 +305,7 @@
     margin: 5px;
 
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: rgb(80,80,80);
 }
 
@@ -338,7 +357,7 @@
     bottom: 0;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
 
     width: 100%;

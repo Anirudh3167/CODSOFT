@@ -13,10 +13,13 @@
     width: 100vw;
     height: 100vh;
 
+    padding-top: 60px;
+
     overflow: scroll;
-    background-color: rgb(var(--fg-clr*100));
-    color: black;
     font-size: 36px;
     font-weight: 700;
     font-family: sans-serif;
+    
+    color: rgb(var(--bg-clr));
+    background-color: rgb(var(--fg-clr));
 }
