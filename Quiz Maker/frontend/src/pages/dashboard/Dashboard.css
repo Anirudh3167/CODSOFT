@@ -1,0 +1,24 @@
+.DashboardWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.DashboardMainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 60px 0 0 0;
+}

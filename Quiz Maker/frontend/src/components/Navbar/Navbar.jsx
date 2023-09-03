@@ -62,9 +62,9 @@ function Navbar() {
                       }
                     </div>
                     <div className="NavLinkHolderParent" style={profileMenu ? {display:"flex"} : {display:"none"}}>
-                      <Link to="#" className="NavLinkHolder"> Dashboard </Link>
-                      <Link to="#" className="NavLinkHolder"> Join Quiz </Link>
-                      <Link to="#" className="NavLinkHolder"> settings </Link>
+                      <Link to="/dashboard" className="NavLinkHolder"> Dashboard </Link>
+                      <Link to="/quiz" className="NavLinkHolder"> Attempt Quiz </Link>
+                      <Link to={`/profile/${userName}`} className="NavLinkHolder"> Profile </Link>
                       <div className="NavLinkHolder logoutBtn" onClick={() => {setUserLoggedIn(false)}}
                       style={{cursor:"pointer"}}> Logout </div>
                     </div>

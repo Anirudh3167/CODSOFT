@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar'
 // Icon imports
 import { GoSearch } from 'react-icons/go'
 import { FaRegMoneyBillAlt } from 'react-icons/fa';
+import { RiDeleteBinLine } from 'react-icons/ri'
 
 // CSS imports
 import './EmployerDashboard.css'
@@ -27,16 +28,22 @@ function EmployerDashboard() {
   // JOB POSTINGS
   // #############################
   const [prevHirings,setPrevHirings] = useState([
-    {"company":"ABC","role":"Web Dev intern","salary":"$500",open:"34",applied:"76"},
-    {"company":"ABC","role":"ML intern","salary":"$400",open:"34",applied:"76"},
-    {"company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
-    {"company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
-    {"company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
-    {"company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
-    {"company":"SpaceX","role":"Web Dev intern","salary":"$5000",open:"34",applied:"76"},
-    {"company":"ABC","role":"ML intern","salary":"$400",open:"34",applied:"76"},
-    {"company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
+    {id:"1","company":"ABC","role":"Web Dev intern","salary":"$500",open:"34",applied:"76"},
+    {id:"2","company":"ABC","role":"ML intern","salary":"$400",open:"34",applied:"76"},
+    {id:"3","company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
+    {id:"4","company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
+    {id:"5","company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
+    {id:"6","company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
+    {id:"7","company":"SpaceX","role":"Web Dev intern","salary":"$5000",open:"34",applied:"76"},
+    {id:"8","company":"ABC","role":"ML intern","salary":"$400",open:"34",applied:"76"},
+    {id:"9","company":"ABC","role":"Android Dev intern","salary":"$550",open:"34",applied:"76"},
   ])
+  const deleteJob = (jobId) => {
+    setPrevHirings(prevHirings.filter(prevElem => 
+                    {return prevElem.id !== jobId;}
+                    )
+    );
+  }
   return (
     <div className='EmployerDashboardWrapper'>
         <Navbar />
@@ -62,10 +69,14 @@ function EmployerDashboard() {
                             prevHirings.map((job,index) => {
                                 return (
                                     <div className="EmployerDashboardJobContainer" key={index}>
-                                        <div className="JobRole" style={{fontSize:"22px"}}>
+                                        {/* Delete Job Btn */}
+                                        <div className="EmployerDashboardJobDeleteBtn" onClick={() => {deleteJob(job.id)}}>
+                                            <RiDeleteBinLine style={{fontSize:"20px"}} />
+                                        </div>
+                                        <div className="JobRole" style={{fontSize:"20px"}}>
                                                 {job.role}
                                         </div>
-                                        <div className="JobCompanyName" style={{fontSize:"18px"}}>
+                                        <div className="JobCompanyName" style={{fontSize:"16px",fontWeight:"500"}}>
                                                 {job.company}
                                         </div>
                                         <div className="JobStats">
@@ -76,9 +87,9 @@ function EmployerDashboard() {
                                                 Applications : {job.applied}
                                             </div>
                                         </div>
-                                        <div className="JobAbout" style={{flexDirection : "row",alignItems:"center",marginBottom:"40px"}}> 
-                                            <div className="JobPageTitleContainer" style={{fontSize:"20px",width:"120px"}}>Salary </div>
-                                            <div className="JobStats">
+                                        <div className="JobAbout" style={{flexDirection : "row",alignItems:"center"}}> 
+                                            <div className="JobPageTitleContainer" style={{fontSize:"16px",width:"120px"}}>Salary </div>
+                                            <div className="JobStats" style={{fontSize:"14px"}}>
                                             <FaRegMoneyBillAlt style={{margin:" 0 10px",alignItems:"center"}} /> {job.salary}/month 
                                             </div>
                                         </div>

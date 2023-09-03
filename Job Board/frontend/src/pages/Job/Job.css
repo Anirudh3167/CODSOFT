@@ -9,7 +9,6 @@
 
     font-family: sans-serif;
     font-size: 16px;
-    overflow: scroll;
     text-align: left;
 
     background-color: rgb(var(--bg-clr));
@@ -22,13 +21,11 @@
     justify-content: flex-start;
     flex-direction: column;
 
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 60px);
     min-height: calc(100vh - 60px);
 
     margin: 60px 0 0 0;
-
-    overflow: scroll;
 }
 
 .JobCoverPage {
@@ -88,7 +85,6 @@
 
     min-width: 300px;
     max-width: calc(100% - 270px);      /* 250 for Application 10 10 for margin of Application */
-    height: 100%;
 }
 
 .JobCompanyName {

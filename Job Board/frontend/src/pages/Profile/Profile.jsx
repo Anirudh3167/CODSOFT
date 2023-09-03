@@ -7,16 +7,23 @@ import Navbar from '../../components/Navbar/Navbar'
 // CSS imports
 import './Profile.css'
 
+// icon imports
+import { AiFillGithub,AiFillInstagram } from 'react-icons/ai'
+import { BsDiscord } from 'react-icons/bs';
+
 function Profile() {
   // ############################
   // USER OBJECT FUNCTIONS
   // ############################
   const [user,setUser] = useState({
-    fname : "", lname : "", email : "", mobile : "",
+    fname : "", lname : "", email : "", mobile : "", dob : "", github : "", discord : "",
+    insta : "", skills : [], experience : [], projects : []
   });
   // Updates the user object with the corresponding data
-  const handleUserObj = (key,value) => {
-    setUser(details => ({...details,...{key:value}}))
+  const handleUserObj = (key_name,value) => {
+    let obj = {};
+    obj[key_name] = value;
+    setUser(user => ({...user,...obj}))
   }
   // ############################
   // EDIT FUNCTIONS
@@ -78,17 +85,91 @@ function Profile() {
                         onChange={(e) => {handleUserObj("email",e.target.value)}} 
                         readOnly={!edit} />
                     </div>
+                </div>
+            </div>
+            {/*  Bio */}
+            <div className="ProfileHeadings" style={{fontSize:"20px",fontWeight:"400",width:"100%",alignItems:"center"}}> Bio </div>
+            <textarea placeholder='A Job Board User' className="ProfileBio"
+            onChange={(e) => {handleUserObj("mobile",e.target.value)}} 
+            readOnly={!edit} style={edit ? {border:"1px solid rgb(140,140,140)",textAlign:"left"} : {border:"0"}}></textarea>
+            {/* Personal Details */}
+            <div className="ProfileHeadings"> Personal Details </div>
+            <div className="ProfilePersonalContainer">
                     <div className="profileRightItem">
                         <div className="profileRightItemHead"> Mobile </div>
-                        <input type="phone" className="profileInputBox"
+                        <input type="tel" className="profileInputBox"
                         onChange={(e) => {handleUserObj("mobile",e.target.value)}} 
                         readOnly={!edit} />
                     </div>
+                    <div className="profileRightItem">
+                        <div className="profileRightItemHead"> Date of Birth </div>
+                        <input type="date" className="profileInputBox"
+                        onChange={(e) => {handleUserObj("dob",e.target.value)}} 
+                        readOnly={!edit} />
+                    </div>
+            </div>
+            {/* Social Links */}
+            <div className="ProfileHeadings"> Social Links </div>
+            <div className="ProfilePersonalContainer">
+                <div className="ProfileSocialItem">
+                    <div className="ProfileSocialLinkHead"> 
+                       <AiFillGithub style={{fontSize:"20px",margin:"0 5px"}} /> Github </div>
+                    <input type="url" className='ProfileUrlInputBox'
+                        placeholder='Your Github Link'
+                        onChange={(e) => {handleUserObj("github",e.target.value)}} readOnly={!edit} 
+                        style={edit ? {color:'black',border:'1px solid rgb(140,140,140)'} : {color:"blue",cursor:"pointer"}} />
+                </div>
+                <div className="ProfileSocialItem">
+                    <div className="ProfileSocialLinkHead"> 
+                       <BsDiscord style={{fontSize:"20px",margin:"0 5px"}} /> Discord </div>
+                    <input type="url" className='ProfileUrlInputBox'
+                        placeholder='Your Discord Link'
+                        onChange={(e) => {handleUserObj("discord",e.target.value)}} readOnly={!edit} 
+                        style={edit ? {color:'black',border:'1px solid rgb(140,140,140)'} : {color:"blue",cursor:"pointer"}} />
+                </div>
+                <div className="ProfileSocialItem">
+                    <div className="ProfileSocialLinkHead"> 
+                       <AiFillInstagram style={{fontSize:"20px",margin:"0 5px"}} /> Instagram </div>
+                    <input type="url" className='ProfileUrlInputBox'
+                        placeholder='Your Insta Link'
+                        onChange={(e) => {handleUserObj("insta",e.target.value)}} readOnly={!edit} 
+                        style={edit ? {color:'black',border:'1px solid rgb(140,140,140)'} : {color:"blue",cursor:"pointer"}} />
                 </div>
             </div>
+            {/* Company */}
+            <div className="ProfileHeadings"> Company </div>
+            <div className="ProfileCompanyContainer">
+            <div className="ProfileBtn" style={{marginLeft:"20px",width:"150px",color:"white",backgroundColor:"blue"}}> Add New </div>
+                        {/* Rest of the Content Here */}
+            </div>
+            {/* Skills */}
             <div className="ProfileHeadings"> Skills </div>
-            <div className="ProfileHeadings"> Achievements </div>
+            <div className="ProfileCompanyContainer">
+            <div className="ProfileBtn" style={{marginLeft:"20px",width:"150px",color:"white",backgroundColor:"blue"}}> Add New </div>
+            
+            <div className="ProfileSkillsContainer">
+                Skills here
+            </div>
+            </div>
+            {/* Projects */}
+            <div className="ProfileHeadings"> Projects </div>
+            <div className="ProfileCompanyContainer">
+            <div className="ProfileBtn" style={{marginLeft:"20px",width:"150px",color:"white",backgroundColor:"blue"}}> Add New </div>
+                        {/* Rest of the Content Here */}
+            </div>
+            {/* Experience */}
             <div className="ProfileHeadings"> Experience </div>
+            <div className="ProfileCompanyContainer">
+            <div className="ProfileBtn" style={{marginLeft:"20px",width:"150px",color:"white",backgroundColor:"blue"}}> Add New </div>
+                        {/* Rest of the Content Here */}
+            </div>
+            {/* Resume */}
+            <div className="ProfileHeadings"> Resume </div>
+            <div className="ProfileCompanyContainer" style={{justifyContent:"center",alignItems:"center",border:"3px solid blue",borderStyle:"dashed",borderRadius:"10px"}}>
+                        Resumer Upload Space
+                        {/* Rest of the Content Here */}
+            </div>
+
             {/* Profile Buttons */}
             <div className="ProfileBtnsWrapper">
                 {edit ? 
