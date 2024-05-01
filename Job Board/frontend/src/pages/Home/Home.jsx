@@ -1,6 +1,5 @@
 // Package Imports
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 
 // CSS imports
@@ -10,10 +9,11 @@ function Home() {
   return (
     <div className='HomeMainWrapper'>
         <Navbar />
-        <div className="HomeMainContainer">
-            The Site is under construction. <br />
-            For More Information
-            <Link to="https://github.com/Anirudh3167/CODSOFT" style={{color:"blue"}}> Contact here </Link>
+        <div className="HomeSection">
+          <div className="centerHead"> Search Jobs Easy and Fast with, 
+            <div className="logoHead"> Job Board </div>
+          </div>
+          <div className="centerDesc"> With more than 1M positions and 100K Customers, we are the largest job portal </div>
         </div>
     </div>
   )
